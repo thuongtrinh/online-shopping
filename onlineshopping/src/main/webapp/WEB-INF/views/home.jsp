@@ -3,12 +3,7 @@
 	<div class="row">
 
 		<div class="col-md-3">
-			<p class="lead">Shop Name</p>
-			<div class="list-group">
-				<a href="#" class="list-group-item">Category 1</a> 
-				<a href="#" class="list-group-item">Category 2</a>
-				<a href="#" class="list-group-item">Category 3</a>
-			</div>
+			<%@include file="./shared/sidebar.jsp"%>
 		</div>
 
 		<div class="col-md-9">
@@ -47,7 +42,6 @@
 						</a>
 					</div>
 				</div>
-
 			</div>
 
 			<div class="row">
@@ -69,11 +63,11 @@
 						<div class="ratings">
 							<p class="pull-right">15 reviews</p>
 							<p>
-								<span class="glyphicon glyphicon-star"></span> 
-								<span class="glyphicon glyphicon-star"></span> 
-								<span class="glyphicon glyphicon-star"></span> 
-								<span class="glyphicon glyphicon-star"></span> 
-								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span> <span
+									class="glyphicon glyphicon-star"></span> <span
+									class="glyphicon glyphicon-star"></span> <span
+									class="glyphicon glyphicon-star"></span> <span
+									class="glyphicon glyphicon-star"></span>
 							</p>
 						</div>
 					</div>
@@ -93,11 +87,11 @@
 						<div class="ratings">
 							<p class="pull-right">12 reviews</p>
 							<p>
-								<span class="glyphicon glyphicon-star"></span> 
-								<span class="glyphicon glyphicon-star"></span> 
-								<span class="glyphicon glyphicon-star"></span> 
-								<span class="glyphicon glyphicon-star"></span> 
-								<span class="glyphicon glyphicon-star-empty"></span>
+								<span class="glyphicon glyphicon-star"></span> <span
+									class="glyphicon glyphicon-star"></span> <span
+									class="glyphicon glyphicon-star"></span> <span
+									class="glyphicon glyphicon-star"></span> <span
+									class="glyphicon glyphicon-star-empty"></span>
 							</p>
 						</div>
 					</div>
@@ -117,11 +111,11 @@
 						<div class="ratings">
 							<p class="pull-right">31 reviews</p>
 							<p>
-								<span class="glyphicon glyphicon-star"></span> 
-								<span class="glyphicon glyphicon-star"></span> 
-								<span class="glyphicon glyphicon-star"></span> 
-								<span class="glyphicon glyphicon-star"></span> 
-								<span class="glyphicon glyphicon-star-empty"></span>
+								<span class="glyphicon glyphicon-star"></span> <span
+									class="glyphicon glyphicon-star"></span> <span
+									class="glyphicon glyphicon-star"></span> <span
+									class="glyphicon glyphicon-star"></span> <span
+									class="glyphicon glyphicon-star-empty"></span>
 							</p>
 						</div>
 					</div>
@@ -141,11 +135,11 @@
 						<div class="ratings">
 							<p class="pull-right">6 reviews</p>
 							<p>
-								<span class="glyphicon glyphicon-star"></span> 
-								<span class="glyphicon glyphicon-star"></span> 
-								<span class="glyphicon glyphicon-star"></span> 
-								<span class="glyphicon glyphicon-star-empty"></span> 
-								<span class="glyphicon glyphicon-star-empty"></span>
+								<span class="glyphicon glyphicon-star"></span> <span
+									class="glyphicon glyphicon-star"></span> <span
+									class="glyphicon glyphicon-star"></span> <span
+									class="glyphicon glyphicon-star-empty"></span> <span
+									class="glyphicon glyphicon-star-empty"></span>
 							</p>
 						</div>
 					</div>
@@ -165,11 +159,11 @@
 						<div class="ratings">
 							<p class="pull-right">18 reviews</p>
 							<p>
-								<span class="glyphicon glyphicon-star"></span> 
-								<span class="glyphicon glyphicon-star"></span> 
-								<span class="glyphicon glyphicon-star"></span> 
-								<span class="glyphicon glyphicon-star"></span> 
-								<span class="glyphicon glyphicon-star-empty"></span>
+								<span class="glyphicon glyphicon-star"></span> <span
+									class="glyphicon glyphicon-star"></span> <span
+									class="glyphicon glyphicon-star"></span> <span
+									class="glyphicon glyphicon-star"></span> <span
+									class="glyphicon glyphicon-star-empty"></span>
 							</p>
 						</div>
 					</div>
@@ -189,11 +183,8 @@
 						href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">View
 						Tutorial</a>
 				</div>
-
 			</div>
-
 		</div>
-
 	</div>
-
 </div>
+
