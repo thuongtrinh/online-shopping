@@ -16,21 +16,36 @@
 
 	<context:component-scan base-package="net.kzn.onlineshopping" />
 
-	<bean id="viewResolver"
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
 
-	<bean id="multipartResolver"
-		class="org.springframework.web.multipart.support.StandardServletMultipartResolver"/>
+	<bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver"/>
 
 	<!-- Load static resource -->
+	<!-- Enables the Spring MVC @Controller programming model -->
 	<mvc:annotation-driven />
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<mvc:resources location="/assets/" mapping="/resources/**"></mvc:resources>
 
 	<!-- WEB FLLOW CONFIGURATION -->
 	<!-- Entry point for the flow -->
+
+	<!-- Define FlowHandlerAdapter to handle Spring Web Flow request call.
+		This is the Controller class in Spring Web Flow -->
+	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
+		<property name="flowExecutor" ref="flowExecutor"></property>
+	</bean>
+
+	<!--Define FlowHandlerMapping to tell DispatcherServlet (in web.xml)
+		to send flow requests to Spring Web Flow -->
+	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
+		<property name="flowRegistry" ref="flowRegistry"></property>
+		<property name="order" value="-1"></property>
+	</bean>
 
 	<wf:flow-executor id="flowExecutor" flow-registry="flowRegistry"/>
 
@@ -42,15 +57,6 @@
 
 	<wf:flow-builder-services id="flowBuilderServices" view-factory-creator="viewFactoryCreator"
 		validator="validator"/>
-
-	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
-		<property name="flowExecutor" ref="flowExecutor"></property>
-	</bean>
-
-	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
-		<property name="flowRegistry" ref="flowRegistry"></property>
-		<property name="order" value="-1"></property>
-	</bean>
 
 	<bean id="viewFactoryCreator" class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
 		<property name="viewResolvers" ref="viewResolver"/>

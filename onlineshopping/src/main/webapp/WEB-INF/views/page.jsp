@@ -57,10 +57,10 @@
 		<!-- Page Content -->
 		<div class="content">
 			<!-- Loading the home content -->
-			<c:if test="${userClickHome ==  true}">
+			<c:if test="${userClickHome == true}">
 				<%@include file="home.jsp"%>
 			</c:if>
-			<c:if test="${userClickAbout ==  true}">
+			<c:if test="${userClickAbout == true}">
 				<%@include file="about.jsp"%>
 			</c:if>
 			<c:if test="${userClickContact ==  true}">

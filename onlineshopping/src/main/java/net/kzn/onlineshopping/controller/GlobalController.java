@@ -31,7 +31,7 @@ public class GlobalController {
 			if(user != null){
 				// create a new userModel object to pass the user details
 				userModel = new UserModel();
-				
+
 				userModel.setId(user.getId());
 				userModel.setEmail(user.getEmail());
 				userModel.setRole(user.getRole());

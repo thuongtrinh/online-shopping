@@ -28,9 +28,9 @@ public class PageController {
 	@Autowired
 	private CategoryDAO categoryDAO;
 	@Autowired
-	private ProductDAO productDAO; 
-	
-	@RequestMapping(value = {"/", "/home", "/index" })
+	private ProductDAO productDAO;
+
+	@RequestMapping(value = { "/", "/home", "/index" })
 	public ModelAndView index() {
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("title", "Home");
@@ -44,7 +44,7 @@ public class PageController {
 		return mv;
 	}
 
-	@RequestMapping(value = {"/about" })
+	@RequestMapping(value = { "/about" })
 	public ModelAndView about() {
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("title", "About Us");
@@ -52,7 +52,7 @@ public class PageController {
 		return mv;
 	}
 
-	@RequestMapping(value = {"/contact" })
+	@RequestMapping(value = { "/contact" })
 	public ModelAndView contact() {
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("title", "Contact Us");
@@ -60,7 +60,7 @@ public class PageController {
 		return mv;
 	}
 
-	@RequestMapping(value = {"/show/all/products" })
+	@RequestMapping(value = { "/show/all/products" })
 	public ModelAndView showAllProducts() {
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("title", "All Products");
@@ -69,7 +69,7 @@ public class PageController {
 		return mv;
 	}
 
-	@RequestMapping(value = {"/show/category/{id}/products" })
+	@RequestMapping(value = { "/show/category/{id}/products" })
 	public ModelAndView showCategoryProducts(@PathVariable("id") int id) {
 		ModelAndView mv = new ModelAndView("page");
 		Category category = null;
@@ -82,11 +82,11 @@ public class PageController {
 	}
 
 	@RequestMapping(value = "/show/{id}/product")
-	public ModelAndView showSingleProduct(@PathVariable int id) throws ProductNotFoundException{
+	public ModelAndView showSingleProduct(@PathVariable int id) throws ProductNotFoundException {
 		ModelAndView mv = new ModelAndView("page");
 		Product product = productDAO.get(id);
 
-		if(product == null) {
+		if (product == null) {
 			throw new ProductNotFoundException();
 		}
 
@@ -106,25 +106,24 @@ public class PageController {
 	public ModelAndView register() {
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("title", "About Us");
-		//mv.addObject("userClickAbout", true);
+		// mv.addObject("userClickAbout", true);
 		return mv;
 	}
 
 	/* Login */
 	@RequestMapping(value = "/login")
 	public ModelAndView login(@RequestParam(name = "error", required = false) String error,
-			@RequestParam(name="logout", required = false)String logout
-			) {
+			@RequestParam(name = "logout", required = false) String logout) {
 		ModelAndView mv = new ModelAndView("login");
-		
-		if(error != null) {
+
+		if (error != null) {
 			mv.addObject("message", "Invalid Username and Password!");
 		}
-	
-		if(logout != null) {
+
+		if (logout != null) {
 			mv.addObject("logout", "User has successfully logged out!");
 		}
-	
+
 		mv.addObject("title", "Login");
 		return mv;
 	}
@@ -142,52 +141,17 @@ public class PageController {
 	/* logout */
 	@RequestMapping(value = "/perform-logout")
 	public String logout(HttpServletRequest request, HttpServletResponse response) {
-		
+
 		// first we are going to fetch the authentication
-		
+
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		
-		if(authentication != null){
+
+		if (authentication != null) {
 			new SecurityContextLogoutHandler().logout(request, response, authentication);
 		}
-		
+
 		return "redirect:/login?logout";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
